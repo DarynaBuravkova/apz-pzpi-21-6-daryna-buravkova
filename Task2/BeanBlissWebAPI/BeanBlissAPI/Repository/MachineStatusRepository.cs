@@ -1,6 +1,7 @@
 ﻿using BeanBlissAPI.Data;
 using BeanBlissAPI.Interfaces;
 using BeanBlissAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BeanBlissAPI.Repository
 {
@@ -12,6 +13,7 @@ namespace BeanBlissAPI.Repository
         {
             _context = context;
         }
+
         public bool CreateMachineStatus(MachineStatus machineStatus)
         {
             _context.Add(machineStatus);
@@ -20,7 +22,8 @@ namespace BeanBlissAPI.Repository
 
         public MachineStatus GetMachineStatus(int machineId)
         {
-            return _context.MachineStatus.Where(p => p.Id == machineId).FirstOrDefault();
+            return _context.MachineStatus
+                .FirstOrDefault(p => p.MachineId == machineId);
         }
 
         public bool MachineCondition(int machineId)
@@ -29,15 +32,16 @@ namespace BeanBlissAPI.Repository
             return status != null && status.EquipmentState;
         }
 
-        public bool MachineStatusExists(int id)
+        public bool MachineStatusExists(int machineId)
         {
-            return _context.MachineStatus.Any(p => p.Id == id);
+            return _context.MachineStatus
+                .Any(p => p.MachineId == machineId);
         }
 
         public bool Save()
         {
             var saved = _context.SaveChanges();
-            return saved > 0 ? true : false;
+            return saved > 0;
         }
 
         public bool UpdateMachineStatus(MachineStatus machineStatus)
