@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using BeanBlissAPI.DTO;
 using BeanBlissAPI.Interfaces;
 using BeanBlissAPI.Models;
@@ -29,8 +29,8 @@ namespace BeanBlissAPI.Controllers
             _technicianRepository = technicianRepository;
         }
 
-        [HttpGet]
-        [ProducesResponseType(200, Type = typeof(MachineStatus))]
+        [HttpGet("{machineId}")]
+        [ProducesResponseType(200, Type = typeof(MachineStatusDto))]
         [ProducesResponseType(400)]
         public IActionResult GetMachineStatus(int machineId)
         {
@@ -43,26 +43,26 @@ namespace BeanBlissAPI.Controllers
             return Ok(status);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{machineId}")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        public IActionResult UpdateMachineStatus(int id,
+        public IActionResult UpdateMachineStatus(int machineId,
             [FromBody] MachineStatusDto updatedMachineStatus)
         {
             if (updatedMachineStatus == null)
                 return BadRequest(ModelState);
 
-            if (id != updatedMachineStatus.Id)
+            if (machineId != updatedMachineStatus.MachineId)
                 return BadRequest(ModelState);
 
-            if (!_statusRepository.MachineStatusExists(id))
+            if (!_statusRepository.MachineStatusExists(machineId))
                 return NotFound();
 
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var existingMachineStatus = _statusRepository.GetMachineStatus(id);
+            var existingMachineStatus = _statusRepository.GetMachineStatus(machineId);
 
             if (existingMachineStatus == null)
                 return NotFound();
@@ -75,7 +75,7 @@ namespace BeanBlissAPI.Controllers
 
             if (!_statusRepository.UpdateMachineStatus(existingMachineStatus))
             {
-                ModelState.AddModelError("", "Something went wrong updating car status");
+                ModelState.AddModelError("", "Something went wrong updating machine status");
                 return StatusCode(500, ModelState);
             }
 
