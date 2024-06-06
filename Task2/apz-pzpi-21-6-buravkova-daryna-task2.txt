@@ -97,6 +97,6 @@ DELETE /api/User/id    Видалити користувача
 
 ПЕРЕЛІК ДЖЕРЕЛ ПОСИЛАННЯ
 
-Посилання на відеоролик з тестуванням серверної частини:
-Посилання на архів з кодом серверної частини: 
+Посилання на відеоролик з тестуванням серверної частини: https://youtu.be/iO_xrlt77j4
+Посилання на архів з кодом серверної частини: https://github.com/NureBuravkovaDaryna/apz-pzpi-21-6-buravkova-daryna/tree/main/Task2/BeanBlissWebAPI
 
