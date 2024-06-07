@@ -1,0 +1,24 @@
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    background-color: #3a2b2b;
+    border-color: #3a2b2b;
+}
+
+.btn-primary:hover {
+    background-color: #3a2b2b;
+    border-color: #3a2b2b;
+}

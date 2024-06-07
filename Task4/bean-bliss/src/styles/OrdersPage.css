@@ -1,0 +1,29 @@
+.orders-page-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-container .form-group {
+    flex: 1;
+}
+
+.orders-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.order-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.view-button-container {
+    margin-top: 10px;
+}
