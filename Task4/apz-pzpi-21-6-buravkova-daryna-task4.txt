@@ -62,5 +62,5 @@
 
 ПЕРЕЛІК ДЖЕРЕЛ ПОСИЛАННЯ
 
-Посилання на архів з кодом: 
-Посилання на відео: 
+Посилання на архів з кодом: https://github.com/NureBuravkovaDaryna/apz-pzpi-21-6-buravkova-daryna/tree/main/Task4/bean-bliss
+Посилання на відео: https://youtu.be/IgTkToflB7I
